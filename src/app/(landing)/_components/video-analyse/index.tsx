@@ -6,14 +6,14 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 const VideoAnalayse = () => {
   return (
-    <section className="py-12 md:py-24 lg:py-32 bg-muted">
+    <section className="py-12 md:py-24 lg:py-32 bg-muted dark:bg-background">
       <div className="container px-4 md:px-6">
         <div className="mx-auto max-w-5xl space-y-6">
           <div className="space-y-2 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Video Analysis Demo</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-foreground">Video Analysis Demo</h2>
             <p className="text-muted-foreground">See how our service works with this example video</p>
           </div>
-          <Card>
+          <Card className="bg-background dark:bg-muted">
             <CardHeader>
               <CardTitle>Video Information</CardTitle>
               <CardDescription>YouTube video: "Introduction to Machine Learning"</CardDescription>
@@ -36,7 +36,7 @@ const VideoAnalayse = () => {
               <TabsTrigger value="translation">Translation</TabsTrigger>
             </TabsList>
             <TabsContent value="transcript">
-              <Card>
+              <Card className="bg-background dark:bg-muted">
                 <CardHeader>
                   <CardTitle>Video Transcript</CardTitle>
                   <CardDescription>Full transcript of the video content</CardDescription>
@@ -54,7 +54,7 @@ const VideoAnalayse = () => {
               </Card>
             </TabsContent>
             <TabsContent value="summary">
-              <Card>
+              <Card className="bg-background dark:bg-muted">
                 <CardHeader>
                   <CardTitle>Video Summary</CardTitle>
                   <CardDescription>Concise summary of the main points</CardDescription>
@@ -77,7 +77,7 @@ const VideoAnalayse = () => {
               </Card>
             </TabsContent>
             <TabsContent value="translation">
-              <Card>
+              <Card className="bg-background dark:bg-muted">
                 <CardHeader>
                   <CardTitle>Translated Content</CardTitle>
                   <CardDescription>Translation of the transcript or summary</CardDescription>

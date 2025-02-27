@@ -9,14 +9,14 @@ const Features = (props: Props) => {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Key Features</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-foreground">Key Features</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Unlock the power of video content with our advanced AI-powered tools
             </p>
           </div>
         </div>
         <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3">
-          <Card>
+          <Card className="bg-background dark:bg-muted">
             <CardHeader>
               <FileText className="h-10 w-10 mb-2" />
               <CardTitle>Accurate Transcription</CardTitle>
@@ -25,14 +25,14 @@ const Features = (props: Props) => {
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card>
+          <Card className="bg-background dark:bg-muted">
             <CardHeader>
               <FileSearch className="h-10 w-10 mb-2" />
               <CardTitle>Smart Summarization</CardTitle>
               <CardDescription>AI-generated summaries capturing key points and insights</CardDescription>
             </CardHeader>
           </Card>
-          <Card>
+          <Card className="bg-background dark:bg-muted">
             <CardHeader>
               <Translate className="h-10 w-10 mb-2" />
               <CardTitle>Multilingual Translation</CardTitle>
@@ -42,6 +42,7 @@ const Features = (props: Props) => {
         </div>
       </div>
     </section>
+
   )
 }
 

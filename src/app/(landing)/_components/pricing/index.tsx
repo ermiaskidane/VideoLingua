@@ -7,14 +7,14 @@ const Pricing = () => {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Pricing Plans</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-foreground">Pricing Plans</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Choose the plan that works best for you
             </p>
           </div>
         </div>
         <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
-          <Card>
+          <Card className="bg-background dark:bg-muted">
             <CardHeader>
               <CardTitle>Basic</CardTitle>
               <CardDescription>For occasional use</CardDescription>
@@ -32,7 +32,7 @@ const Pricing = () => {
               <Button className="w-full">Get Started</Button>
             </CardFooter>
           </Card>
-          <Card>
+          <Card className="bg-background dark:bg-muted">
             <CardHeader>
               <CardTitle>Pro</CardTitle>
               <CardDescription>For regular content creators</CardDescription>
@@ -51,7 +51,7 @@ const Pricing = () => {
               <Button className="w-full">Get Started</Button>
             </CardFooter>
           </Card>
-          <Card>
+          <Card className="bg-background dark:bg-muted">
             <CardHeader>
               <CardTitle>Enterprise</CardTitle>
               <CardDescription>For large-scale needs</CardDescription>

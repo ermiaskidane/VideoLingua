@@ -1,10 +1,26 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { Languages } from "lucide-react"
+import { Languages, Moon, Sun } from "lucide-react"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 type Props = {}
 
 const LandingPageNavbar = (props: Props) => {
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
+  }, [darkMode])
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
   return(
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -24,6 +40,9 @@ const LandingPageNavbar = (props: Props) => {
           </Link>
         </nav>
         <div className="flex items-center gap-4">
+          <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
+            {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
           <Button variant="ghost" size="sm">
             Log in
           </Button>

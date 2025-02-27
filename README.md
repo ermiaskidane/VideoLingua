@@ -4,6 +4,13 @@
 - bunx --bun shadcn@latest init
 - bunx --bun shadcn@latest add
 - bun add next-themes
+- bun add better-auth
+- bunx prisma init
+- bun add prisma
+- bun add @prisma/client
+- bunx prisma generate
+- bunx prisma db push
+- bunx prisma studio
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
