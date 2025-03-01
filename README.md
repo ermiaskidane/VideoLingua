@@ -9,6 +9,7 @@
 - bun add prisma
 - bun add @prisma/client
 - bunx prisma generate
+- bunx @better-auth/cli generate
 - bunx prisma db push
 - bunx prisma studio
 
