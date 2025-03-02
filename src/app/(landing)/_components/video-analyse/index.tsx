@@ -16,7 +16,8 @@ const VideoAnalayse = () => {
           <Card className="bg-background dark:bg-muted">
             <CardHeader>
               <CardTitle>Video Information</CardTitle>
-              <CardDescription>YouTube video: "Introduction to Machine Learning"</CardDescription>
+              {/* @ts: */}
+              <CardDescription>YouTube video: &quot;Introduction to Machine Learning &quot;</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="aspect-video">
