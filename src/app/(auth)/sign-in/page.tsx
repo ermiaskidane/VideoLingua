@@ -2,20 +2,18 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner"
 
 import { ErrorContext } from "@better-fetch/fetch";
-import { GithubIcon } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 
 export default function SignIn() {
 	const router = useRouter();
 	const [pendingGoogle, setPendingGoogle] = useState(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [pendingFacebook, setPendingFacebook] = useState<boolean>(false)
 
 	const handleSignInWithGoogle = async () => {
 		await authClient.signIn.social(
@@ -47,7 +45,7 @@ export default function SignIn() {
 			},
 			{
 				onRequest: () => {
-					setPendingGoogle(true);
+					setPendingFacebook(true);
 				},
 				onSuccess: async () => {
 					router.push("/");
@@ -60,7 +58,7 @@ export default function SignIn() {
 				},
 			}
 		);
-		setPendingGoogle(false);
+		setPendingFacebook(false);
 	};
 
 	return (
@@ -71,7 +69,7 @@ export default function SignIn() {
           <CardDescription className="text-center">Choose your preferred login method</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Button variant="outline" className="w-full" onClick={handleSignInWithGoogle} disabled={isLoading}>
+          <Button variant="outline" className="w-full" onClick={handleSignInWithGoogle} disabled={pendingGoogle}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 mr-2">
               <path
                 fill="#4285F4"
@@ -92,7 +90,7 @@ export default function SignIn() {
             </svg>
             Sign in with Google
           </Button>
-          <Button variant="outline" className="w-full" onClick={handleSignInWithFacebook} disabled={isLoading}>
+          <Button variant="outline" className="w-full" onClick={handleSignInWithFacebook} disabled={pendingFacebook}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -105,25 +103,5 @@ export default function SignIn() {
         </CardContent>
       </Card>
     </div>
-		// <div className="grow flex items-center justify-center p-4">
-		// 	<Card className="w-full max-w-md">
-		// 		<CardHeader>
-		// 			<CardTitle className="text-3xl font-bold text-center text-gray-800">
-		// 				Sign In
-		// 			</CardTitle>
-		// 		</CardHeader>
-		// 		<CardContent>
-		// 			<div className="mt-4">
-		// 				<LoadingButton
-		// 					pending={pendingGoogle}
-		// 					onClick={handleSignInWithGithub}
-		// 				>
-		// 					<GithubIcon className="w-4 h-4 mr-2" />
-		// 					Continue with GitHub
-		// 				</LoadingButton>
-		// 			</div>
-		// 		</CardContent>
-		// 	</Card>
-		// </div>
 	);
 }

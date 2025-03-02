@@ -2,9 +2,8 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
-type Props = {}
 
-const CallToAction = (props: Props) => {
+const CallToAction = () => {
   return (
     <section className="py-12 md:py-24 lg:py-32 xl:py-48">
       <div className="container px-4 md:px-6">
