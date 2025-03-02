@@ -17,10 +17,33 @@ export default function SignIn() {
 	const [pendingGoogle, setPendingGoogle] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-	const handleSignInWithGithub = async () => {
+	const handleSignInWithGoogle = async () => {
 		await authClient.signIn.social(
 			{
 				provider: "google"
+			},
+			{
+				onRequest: () => {
+					setPendingGoogle(true);
+				},
+				onSuccess: async () => {
+					router.push("/");
+					router.refresh();
+				},
+				onError: (ctx: ErrorContext) => {
+					toast("Error", {
+						description: ctx.error.message ?? "Something went wrong.",
+					});
+				},
+			}
+		);
+		setPendingGoogle(false);
+	};
+
+  const handleSignInWithFacebook = async () => {
+		await authClient.signIn.social(
+			{
+				provider: "facebook"
 			},
 			{
 				onRequest: () => {
@@ -48,7 +71,7 @@ export default function SignIn() {
           <CardDescription className="text-center">Choose your preferred login method</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Button variant="outline" className="w-full" onClick={handleSignInWithGithub} disabled={isLoading}>
+          <Button variant="outline" className="w-full" onClick={handleSignInWithGoogle} disabled={isLoading}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 mr-2">
               <path
                 fill="#4285F4"
@@ -69,7 +92,7 @@ export default function SignIn() {
             </svg>
             Sign in with Google
           </Button>
-          <Button variant="outline" className="w-full" onClick={handleSignInWithGithub} disabled={isLoading}>
+          <Button variant="outline" className="w-full" onClick={handleSignInWithFacebook} disabled={isLoading}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
